@@ -3,7 +3,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: tvos
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: OS for running on TVs
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
@@ -23,6 +23,7 @@ modules:
         - atim/starship
     install:
       packages:
+        - plasma-bigscreen
         - micro
         - starship
     remove:
@@ -41,5 +42,3 @@ modules:
           - org.mozilla.firefox
           - org.gnome.Loupe
       - scope: user # Also add Flathub user repo, but no user packages
-
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
